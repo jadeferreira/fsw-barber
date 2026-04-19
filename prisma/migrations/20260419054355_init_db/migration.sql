@@ -16,7 +16,7 @@ CREATE TABLE "Barbershop" (
     "address" TEXT NOT NULL,
     "phones" TEXT[],
     "description" TEXT NOT NULL,
-    "imageURL" TEXT NOT NULL,
+    "imageUrl" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
