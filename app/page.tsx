@@ -1,5 +1,7 @@
-const About = () => {
-  return <h1 className="">About</h1>;
-};
+import { Button } from "./_components/ui/button"
 
-export default About;
+const Home = () => {
+  return <Button>Click me</Button>
+}
+
+export default Home
