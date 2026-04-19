@@ -1,1 +1,1 @@
-.git/hooks/commit-nsg $1
+.git/hooks/commit-msg $1
