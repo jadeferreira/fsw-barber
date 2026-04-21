@@ -5,10 +5,13 @@ import { SearchIcon } from "lucide-react"
 import Image from "next/image"
 import { Card, CardContent } from "@/app/_components/ui/card"
 import { Badge } from "@/app/_components/ui/badge"
-
 import { Avatar, AvatarImage } from "@/app/_components/ui/avatar"
+import { db } from "./_lib/prisma"
+import BarbershopItem from "@/app/_components/ui/barbershop-item"
 
-const Home = () => {
+const Home = async () => {
+  const barbershops = await db.barbershop.findMany()
+
   return (
     <div>
       <Header />
@@ -58,6 +61,15 @@ const Home = () => {
             </div>
           </CardContent>
         </Card>
+
+        <h3 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
+          Recomendados
+        </h3>
+        <div className="flex gap-4 overflow-x-scroll [&::-webkit-scrollbar]:hidden">
+          {barbershops.map((barbershop) => (
+            <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+          ))}
+        </div>
       </div>
     </div>
   )
