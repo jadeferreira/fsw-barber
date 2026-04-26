@@ -18,20 +18,19 @@ const SidebarSheet = () => {
         <SheetTitle className="text-left">Menu</SheetTitle>
       </SheetHeader>
 
-      <div className="flex items-center gap-3 border-b border-solid py-5">
+      <div className="flex items-center gap-3 border-b border-solid p-4">
         <Avatar>
           <AvatarImage src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
         </Avatar>
+        <div>
+          <p className="font-bold">Felipe Rocha</p>
+          <p className="text-xs">felipe@fullstackclub.io</p>
+        </div>
       </div>
 
-      <div>
-        <p className="font-bold">Felipe Rocha</p>
-        <p className="text-xs">felipe@fullstackclub.io</p>
-      </div>
-
-      <div className="flex flex-col gap-2 border-b border-solid py-5">
+      <div className="flex flex-col gap-2 border-b border-solid pb-5">
         <SheetClose asChild>
-          <Button className="justify-start gap-2" asChild>
+          <Button className="justify-start gap-2" asChild variant="ghost">
             <Link href="/">
               <HomeIcon size={18} />
               Início
@@ -44,7 +43,7 @@ const SidebarSheet = () => {
         </Button>
       </div>
 
-      <div className="flex flex-col gap-2 border-b border-solid py-5">
+      <div className="flex flex-col gap-2 border-b border-solid pb-5">
         {quickSearchOptions.map((option) => (
           <Button
             key={option.title}
@@ -62,7 +61,7 @@ const SidebarSheet = () => {
         ))}
       </div>
 
-      <div className="flex flex-col gap-2 py-5">
+      <div className="flex flex-col gap-2">
         <Button variant="ghost" className="justify-start gap-2">
           <LogOutIcon size={18} />
           Sair da conta
