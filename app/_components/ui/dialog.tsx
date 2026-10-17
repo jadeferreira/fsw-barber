@@ -72,7 +72,7 @@ function DialogContent({
             <Button
               variant="ghost"
               className="absolute right-2 top-2"
-              size="icon-sm"
+              size="icon"
             >
               <XIcon />
               <span className="sr-only">Close</span>

@@ -24,10 +24,12 @@ const BarbershopsPage = async ({ searchParams }: BarbershopsPageProps) => {
           : {},
         searchParams?.service
           ? {
-              some: {
-                name: {
-                  contains: searchParams?.service,
-                  mode: "insensitive",
+              services: {
+                some: {
+                  name: {
+                    contains: searchParams?.service,
+                    mode: "insensitive",
+                  },
                 },
               },
             }

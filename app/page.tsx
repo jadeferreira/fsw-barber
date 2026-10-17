@@ -45,8 +45,8 @@ const Home = async () => {
                   width={16}
                   height={16}
                 />
+                {option.title}
               </Link>
-              {option.title}
             </Button>
           ))}
         </div>
