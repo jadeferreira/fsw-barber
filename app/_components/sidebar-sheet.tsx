@@ -22,7 +22,7 @@ const SidebarSheet = () => {
   const handleLogoutClick = () => signOut()
 
   return (
-    <SheetContent>
+    <SheetContent className="overflow-y-auto p-4">
       <SheetHeader>
         <SheetTitle className="text-left">Menu</SheetTitle>
       </SheetHeader>
@@ -93,8 +93,8 @@ const SidebarSheet = () => {
         ))}
       </div>
 
-      {data?.user ? (
-        <div className="flex flex-col gap-2">
+      {data?.user && (
+        <div className="flex flex-col gap-2 py-5">
           <Button
             variant="ghost"
             className="justify-start gap-2"
@@ -104,7 +104,7 @@ const SidebarSheet = () => {
             Sair da conta
           </Button>
         </div>
-      ) : null}
+      )}
     </SheetContent>
   )
 }
