@@ -1,7 +1,11 @@
 "use client"
 
 import { Button } from "@/app/_components/ui/button"
-import { Dialog, DialogTrigger } from "@/app/_components/ui/dialog"
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/app/_components/ui/dialog"
 import {
   SheetClose,
   SheetContent,
@@ -15,7 +19,6 @@ import { signOut, useSession } from "next-auth/react"
 import Image from "next/image"
 import Link from "next/link"
 import SignInDialog from "@/app/_components/sign-in-dialog"
-import { DialogContent } from "@radix-ui/react-dialog"
 
 const SidebarSheet = () => {
   const { data } = useSession()

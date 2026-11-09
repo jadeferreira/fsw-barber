@@ -1,18 +1,36 @@
+"use client"
+
+import { deleteBooking } from "@/app/_actions/delete-booking"
 import PhoneItem from "@/app/_components/phone-item"
 import { Avatar, AvatarImage } from "@/app/_components/ui/avatar"
 import { Badge } from "@/app/_components/ui/badge"
+import { Button } from "@/app/_components/ui/button"
 import { Card, CardContent } from "@/app/_components/ui/card"
 import {
+  Dialog,
+  DialogHeader,
+  DialogTitle,
+  DialogContent,
+  DialogDescription,
+  DialogTrigger,
+  DialogFooter,
+} from "@/app/_components/ui/dialog"
+import {
+  Sheet,
+  SheetClose,
   SheetContent,
+  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/app/_components/ui/sheet"
 import { Prisma } from "@prisma/client"
+import { DialogClose } from "@radix-ui/react-dialog"
 import { format, isFuture } from "date-fns"
 import { ptBR } from "date-fns/locale"
-import { Sheet } from "lucide-react"
 import Image from "next/image"
+import { useState } from "react"
+import { toast } from "sonner"
 
 interface BookingItemProps {
   booking: Prisma.BookingGetPayload<{
@@ -27,14 +45,29 @@ interface BookingItemProps {
 }
 
 const BookingItem = ({ booking }: BookingItemProps) => {
+  const [isSheetOpen, setIsSheetOpen] = useState(false)
   const {
     service: { barbershop },
   } = booking
   const isConfirmed = isFuture(booking.date)
+  const handleCancelBooking = async () => {
+    try {
+      await deleteBooking(booking.id)
+      setIsSheetOpen(false)
+      toast.success("Reserva cancelada com sucesso!")
+    } catch (error) {
+      console.error("Error ao cancelar reserva", error)
+      toast.error("Ocorreu um erro ao cancelar a reserva. Tente novamente.")
+    }
+  }
+
+  const handleSheetOpenChange = (open: boolean) => {
+    setIsSheetOpen(open)
+  }
   return (
     <>
-      <Sheet>
-        <SheetTrigger className="w-full">
+      <Sheet open={isSheetOpen} onOpenChange={handleSheetOpenChange}>
+        <SheetTrigger asChild>
           <Card className="min-w-[90%]">
             <CardContent className="flex justify-between p-0">
               <div className="flex flex-col gap-2 py-5 pl-5">
@@ -57,7 +90,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
                 <p className="text-sm capitalize">
                   {format(booking.date, "MMM", { locale: ptBR })}
                 </p>
-                <p className="text-2xl font-bold">
+                <p className="text-2xl">
                   {format(booking.date, "dd", { locale: ptBR })}
                 </p>
                 <p className="text-sm">
@@ -67,21 +100,21 @@ const BookingItem = ({ booking }: BookingItemProps) => {
             </CardContent>
           </Card>
         </SheetTrigger>
-        <SheetContent className="w-[90%]">
+        <SheetContent className="w-[85%]">
           <SheetHeader>
             <SheetTitle className="text-left">
               Informações da reserva
             </SheetTitle>
           </SheetHeader>
-          <div className="relative mt-6 h-[180px] w-full items-end">
+          <div className="relative mx-4 mt-1 h-[180px]">
             <Image
               src="/map.png"
               fill
               className="rounded-xl object-cover"
               alt="Mapa da Barbearia ${booking.service.barbershop.name}"
             />
-            <Card className="z-50 mx-5 mb-3 w-full rounded-xl">
-              <CardContent className="items-center gap-3 px-5 py-3">
+            <Card className="absolute bottom-3 left-3 right-3 z-10 rounded-xl">
+              <CardContent className="flex items-center gap-3 px-5 py-3">
                 <Avatar>
                   <AvatarImage
                     src={barbershop.imageUrl}
@@ -95,9 +128,9 @@ const BookingItem = ({ booking }: BookingItemProps) => {
               </CardContent>
             </Card>
           </div>
-          <div className="mt-6">
+          <div className="px-5">
             <Badge
-              className="w-fit"
+              className="w-fit rounded-sm"
               variant={isConfirmed ? "default" : "secondary"}
             >
               {isConfirmed ? "Confirmado" : "Finalizado"}
@@ -140,6 +173,54 @@ const BookingItem = ({ booking }: BookingItemProps) => {
               ))}
             </div>
           </div>
+          <SheetFooter className="mt-1">
+            <div className="flex gap-3">
+              <SheetClose asChild>
+                <Button variant="outline" className="flex-1">
+                  Voltar
+                </Button>
+              </SheetClose>
+              {isConfirmed && (
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="destructive" className="flex-1">
+                      Cancelar
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="w-[90%]">
+                    <DialogHeader>
+                      <DialogTitle>
+                        Tem certeza que deseja cancelar este agendamento?
+                      </DialogTitle>
+                      <DialogDescription>
+                        Ao cancelar, você não poderá mais comparecer a este
+                        agendamento. Esta ação não pode ser desfeita.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <DialogFooter className="flex flex-row gap-3">
+                      <DialogClose asChild>
+                        <Button
+                          variant="secondary"
+                          className="w-full rounded-xl"
+                        >
+                          Voltar
+                        </Button>
+                      </DialogClose>
+                      <DialogClose className="w-full">
+                        <Button
+                          variant="destructive"
+                          className="w-full rounded-xl"
+                          onClick={handleCancelBooking}
+                        >
+                          Confirmar
+                        </Button>
+                      </DialogClose>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
+              )}
+            </div>
+          </SheetFooter>
         </SheetContent>
       </Sheet>
     </>

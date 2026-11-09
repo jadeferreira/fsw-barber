@@ -125,7 +125,6 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
 
       await createBooking({
         serviceId: service.id,
-        userId: data.user.id,
         date: newDate,
       })
       handleBookingSheetOpenChange()
@@ -228,7 +227,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                     </div>
                   )}
 
-                  {selectedTime && (
+                  {selectedTime && selectedDay && (
                     <div className="p-5">
                       <Card>
                         <CardContent className="space-y-2 p-3">
