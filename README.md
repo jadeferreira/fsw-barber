@@ -44,17 +44,21 @@ O projeto exercita o desenvolvimento **full stack** com o ecossistema React/Next
 
 <!-- CONFIRMAR: link do deploy e imagens -->
 
-🔗 **Acesse a aplicação:** [fsw-barber](<[https://SEU-LINK-AQUI](https://fsw-barber-puce.vercel.app/)>)
+🔗 **Acesse a aplicação:** [fsw-barber](https://fsw-barber-puce.vercel.app/)
 
-<p align="center">
-  <img src="/docs/barbershop.png" alt="Tela inicial" width="240" />
-  <img src="/docs/barbearia.png" alt="Página da barbearia" width="240" height="1000" />
-  <img src="/docs/booking.png" alt="Agendamento" width="240" />
-  <img src="/docs/bookings.png" alt="Meus agendamentos" width="240" />
-  <img src="/docs/infor.png" alt="Meus agendamentos" width="240" />
-  <img src="/docs/menu.png" alt="Meus agendamentos" width="240" />
-  <img src="/docs/categoria.png" alt="Meus agendamentos" width="240" />
-</p>
+<table align="center">
+  <tr>
+    <td align="center"><img src="./docs/screenshots/home.png" width="200" alt="Tela inicial" /><br /><sub>Home</sub></td>
+    <td align="center"><img src="./docs/screenshots/categories.png" width="200" alt="Categorias" /><br /><sub>Categorias</sub></td>
+    <td align="center"><img src="./docs/screenshots/barbershop.png" width="200" alt="Página da barbearia" /><br /><sub>Barbearia</sub></td>
+    <td align="center"><img src="./docs/screenshots/info.png" width="200" alt="Informações da barbearia" /><br /><sub>Informações</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="./docs/screenshots/booking.png" width="200" alt="Agendamento" /><br /><sub>Agendamento</sub></td>
+    <td align="center"><img src="./docs/screenshots/bookings.png" width="200" alt="Meus agendamentos" /><br /><sub>Agendamentos</sub></td>
+    <td align="center"><img src="./docs/screenshots/menu.png" width="200" alt="Menu lateral" /><br /><sub>Menu</sub></td>
+  </tr>
+</table>
 
 ### ✨ Funcionalidades
 
