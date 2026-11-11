@@ -48,15 +48,15 @@ O projeto exercita o desenvolvimento **full stack** com o ecossistema React/Next
 
 <table align="center">
   <tr>
-    <td align="center"><img src="./docs/screenshots/home.png" width="200" alt="Tela inicial" /><br /><sub>Home</sub></td>
-    <td align="center"><img src="./docs/screenshots/categories.png" width="200" alt="Categorias" /><br /><sub>Categorias</sub></td>
-    <td align="center"><img src="./docs/screenshots/barbershop.png" width="200" alt="Página da barbearia" /><br /><sub>Barbearia</sub></td>
-    <td align="center"><img src="./docs/screenshots/info.png" width="200" alt="Informações da barbearia" /><br /><sub>Informações</sub></td>
+    <td align="center" valign="top"><sub>Home</sub><br /><img src="./docs/screenshots/home.png" width="200" alt="Tela inicial" /></td>
+    <td align="center" valign="top"><sub>Categorias</sub><br /><img src="./docs/screenshots/categories.png" width="200" alt="Categorias" /></td>
+    <td align="center" valign="top"><sub>Barbearia</sub><br /><img src="./docs/screenshots/barbershop.png" width="200" alt="Página da barbearia" /></td>
+    <td align="center" valign="top"><sub>Informações</sub><br /><img src="./docs/screenshots/info.png" width="200" alt="Informações da barbearia" /></td>
   </tr>
   <tr>
-    <td align="center"><img src="./docs/screenshots/booking.png" width="200" alt="Agendamento" /><br /><sub>Agendamento</sub></td>
-    <td align="center"><img src="./docs/screenshots/bookings.png" width="200" alt="Meus agendamentos" /><br /><sub>Agendamentos</sub></td>
-    <td align="center"><img src="./docs/screenshots/menu.png" width="200" alt="Menu lateral" /><br /><sub>Menu</sub></td>
+    <td align="center" valign="top"><sub>Agendamento</sub><br /><img src="./docs/screenshots/booking.png" width="200" alt="Agendamento" /></td>
+    <td align="center" valign="top"><sub>Agendamentos</sub><br /><img src="./docs/screenshots/bookings.png" width="200" alt="Meus agendamentos" /></td>
+    <td align="center" valign="top"><sub>Menu</sub><br /><img src="./docs/screenshots/menu.png" width="200" alt="Menu lateral" /></td>
   </tr>
 </table>
 
