@@ -192,7 +192,7 @@ GOOGLE_CLIENT_SECRET="seu-client-secret"
 | `npx prisma db seed` | Popula o banco (`ts-node prisma/seed.ts`) |
 | `npx prisma studio`  | Abre a interface visual do banco          |
 
-## ☁️ Deploy
+### ☁️ Deploy
 
 <!-- CONFIRMAR: plataforma usada no deploy -->
 
@@ -202,7 +202,7 @@ GOOGLE_CLIENT_SECRET="seu-client-secret"
 4. Adicione a URL de callback de produção no Google Cloud Console
 5. Rode as migrations no banco de produção: `npx prisma migrate deploy`
 
-## 💡 Aprendizados
+### 💡 Aprendizados
 
 <!-- CONFIRMAR: personalize com o que você realmente aprendeu -->
 
@@ -214,7 +214,7 @@ GOOGLE_CLIENT_SECRET="seu-client-secret"
 - Interfaces consistentes com **shadcn/ui** e **Tailwind CSS**
 - Boas práticas de repositório: **ESLint, Prettier, Husky e commits padronizados**
 
-## 🔭 Próximos passos
+### 🔭 Próximos passos
 
 - [ ] Versão **desktop** responsiva
 - [ ] Painel administrativo para a barbearia
